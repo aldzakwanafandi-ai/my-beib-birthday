@@ -10,6 +10,21 @@ const errorMessage = document.getElementById("errorMessage");
 const mainContent = document.getElementById("mainContent");
 const birthdayMusic = document.getElementById("birthdayMusic");
 
+function startMusic() {
+    birthdayMusic.pause();
+    birthdayMusic.currentTime = 0;
+    birthdayMusic.volume = 1;
+    birthdayMusic.muted = false;
+
+    birthdayMusic.play()
+        .then(() => {
+            console.log("MUSIK BERHASIL DIPUTAR");
+        })
+        .catch((error) => {
+            console.error("MUSIK GAGAL:", error);
+        });
+}
+
 const slideshowSection = document.getElementById("slideshowSection");
 const slides = document.querySelectorAll(".photo-slide");
 
@@ -25,6 +40,14 @@ const confettiContainer = document.getElementById("confettiContainer");
 /* =========================================
    PIN
 ========================================= */
+if (pin === "04102005") {
+
+    startMusic();
+
+    pinScreen.classList.add("hidden");
+    mainContent.classList.remove("hidden");
+
+}
 
 const correctPIN = "04102005";
 
